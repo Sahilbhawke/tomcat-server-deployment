@@ -15,7 +15,7 @@ phases:
         commands:
           - echo Entering build phase...
           - echo Build started on `date`
-          - mvn -f pom.xml compile war:exploded
+          - mvn --file pom.xml compile war:exploded
     post_build:
         commands:
           - echo Entering post_build phase...
