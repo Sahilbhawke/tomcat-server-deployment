@@ -3,17 +3,18 @@ phases:
    
     files: 
       - "**/*"
-  build: 
+    build: 
     commands: 
       - "echo Entering build phase..."
       - "echo Build started on `date`"
-  post_build: 
-    commands: 
-      - "echo Entering post_build phase..."
-      - "echo Build completed on `date`"
-      - "aws s3 cp --recursive --acl public-read s3://$BUCKET_NAME/"
-  pre_build: 
-    commands: 
-      - "echo Entering pre_build phase..."
-      - "echo Nothing to do in the pre_build phase..."
+    post_build: 
+     commands: 
+       - "echo Entering post_build phase..."
+       - "echo Build completed on `date`"
+       - "aws s3 cp --recursive --acl public-read s3://$BUCKET_NAME/"
+    pre_build: 
+     commands: 
+       - "echo Entering pre_build phase..."
+       - "echo Nothing to do in the pre_build phase..."
 version: 0.1
+
