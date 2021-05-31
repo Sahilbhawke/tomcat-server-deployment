@@ -1,6 +1,6 @@
 --- 
 phases: 
-  artifacts: 
+   
     files: 
       - "**/*"
   build: 
