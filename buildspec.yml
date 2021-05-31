@@ -13,7 +13,7 @@ phases:
         commands:
           - echo Entering post_build phase...
           - echo Build completed on `date`
-          - aws s3 cp --recursive --acl public-read s3://$BUCKET_NAME/
+          - aws s3 cp --recursive --acl public-read ./ s3://$BUCKET_NAME/
 artifacts:
     type: zip
     files:
