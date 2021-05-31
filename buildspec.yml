@@ -1,27 +1,20 @@
 ---
 version: 0.1
-phases:
-    install:
-        commands:
-          - echo Entering install phase...
-          - wget http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
-          - tar xzvf apache-maven-3.3.9-bin.tar.gz -C /opt/
-          - export PATH=/opt/apache-maven-3.3.9/bin:$PATH
-    pre_build:
+phases:       
+  pre_build:
         commands:
           - echo Entering pre_build phase...
           - echo Nothing to do in the pre_build phase...
-    build:
+  build:
         commands:
           - echo Entering build phase...
           - echo Build started on `date`
-          - mvn --file pom.xml compile war:exploded
-    post_build:
+  post_build:
         commands:
           - echo Entering post_build phase...
           - echo Build completed on `date`
-          - mv target/ROOT .
+          - aws s3 cp --recursive --acl public-read s3://$BUCKET_NAME/
 artifacts:
     type: zip
     files:
-        - '**/*'
+       - '**/*'
