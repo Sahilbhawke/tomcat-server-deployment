@@ -1,8 +1,7 @@
 --- 
 phases: 
    
-    files: 
-      "**/*"
+    
     build: 
     commands: 
       - "echo Entering build phase..."
